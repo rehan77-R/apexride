@@ -3,81 +3,99 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>sign up Lab 2</title>
+  <title>Sign up RDR2</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-blue-200 flex items-center justify-center">
+<body class="min-h-screen bg-blue-200 flex flex-col">
 
-  <div class="bg-blue-100 rounded-2xl shadow-lg p-10 w-full max-w-md">
-
-    <!-- Logo -->
-    <div class="text-center mb-8">
-      <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">Lab</div>
-      <h1 class="text-2xl font-bold text-blue-900">Create an Account</h1>
-      
+  <!-- Navigation - OUTSIDE the card -->
+  <nav class="bg-white shadow-md sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="text-2xl font-bold text-blue-800">
+          RDR2
+        </div>
+        <div class="space-x-6">
+          <a href="../../../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="../../pages/about/about.html" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="../../pages/contact/contact.html" class="text-gray-700 hover:text-blue-700">Contact</a>
+          <a href="../sign in/signin.html" class="text-gray-700 hover:text-blue-500">Sign In</a>
+          <a href="./signup.html" class="text-gray-700 hover:text-blue-500">Sign Up</a>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <!-- Form -->
-    <form>
+  <!-- Card - centered below nav -->
+  <div class="flex-1 flex items-center justify-center py-8">
+    <div class="bg-blue-100 rounded-2xl shadow-lg p-10 w-full max-w-md">
 
-      <!-- Name Row -->
-      <div class="flex gap-3 mb-4">
-        <div class="w-1/2">
-          <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-          <input type="text" placeholder=""
-            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"/>
+      <!-- Logo -->
+      <div class="text-center mb-8">
+        <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">RDR2</div>
+        <h1 class="text-2xl font-bold text-blue-900">Create an Account</h1>
+      </div>
+
+      <!-- Form -->
+      <form>
+        <!-- Name Row -->
+        <div class="flex gap-3 mb-4">
+          <div class="w-1/2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+            <input type="text" placeholder=""
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+          </div>
+          <div class="w-1/2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+            <input type="text" placeholder=""
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+          </div>
         </div>
-        <div class="w-1/2">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-          <input type="text" placeholder=""
-            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"/>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <input type="email" placeholder="123@example.com"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
         </div>
-      </div>
 
-      <!-- Email -->
-      <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-        <input type="email" placeholder="123@example.com"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"/>
-      </div>
+        <!-- Password -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" placeholder="Create a password"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+        </div>
 
-      <!-- Password -->
-      <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-        <input type="password" placeholder="Create a password"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"/>
-      </div>
+        <!-- Confirm Password -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+          <input type="password" placeholder="Repeat your password"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+        </div>
 
-      <!-- Confirm Password -->
-      <div class="mb-6">
-        <label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-        <input type="password" placeholder="Repeat your password"
-          class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"/>
-      </div>
+        <!-- Terms Checkbox -->
+        <div class="flex items-center gap-2 mb-6">
+          <input type="checkbox" id="terms" class="rounded border-gray-300"/>
+          <label for="terms" class="text-sm text-gray-600">
+            I agree to the
+            <a href="#" class="text-black font-bold hover:underline">Terms & Conditions</a>
+          </label>
+        </div>
 
-      <!-- Terms Checkbox -->
-      <div class="flex items-center gap-2 mb-6">
-        <input type="checkbox" id="terms" class="rounded border-gray-300"/>
-        <label for="terms" class="text-sm text-gray-600">
-          I agree to the 
-          <a href="#" class="text-black-500 hover:underline font-bold">Terms & Conditions</a>
-        </label>
-      </div>
+        <!-- Button -->
+        <button type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-lg text-sm transition">
+          Create Account
+        </button>
+      </form>
 
-      <!-- Button -->
-      <button type="submit"
-        class="w-full bg-blue-500 hover:bg-orange-600 text-white font-semibold py-2.5 rounded-lg text-sm transition">
-        Create Account
-      </button>
+      <!-- Sign in link -->
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Already have an account?
+        <a href="../sign in/signin.html" class="text-blue-500 font-semibold hover:underline">Sign In</a>
+      </p>
 
-    </form>
-
-    <!-- Sign in link -->
-    <p class="text-center text-sm text-gray-500 mt-6">
-      Already have an account?
-      <a href="../sign in/signin.html" class="text-blue-500 font-semibold hover:underline">Sign In</a>
-    </p>
-
+    </div>
   </div>
 
 </body>
