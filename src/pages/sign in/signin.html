@@ -3,49 +3,73 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign in Lab 2</title>
+  <title>Sign in RDR2</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-blue-200 flex items-center justify-center">
+<body class="min-h-screen bg-blue-200 flex flex-col">
 
-  <div class="bg-blue-100 rounded-2xl shadow-lg p-10 w-full max-w-md">
-    
-    <!-- Logo -->
-    <div class="text-center mb-8">
-      <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">Lab</div>
-      <h1 class="text-2xl font-bold text-gray-900">Sign In to Lab</h1>
-      <p class="text-gray-500 text-sm mt-1">Welcome back!</p>
+  <!-- Navigation - OUTSIDE the card -->
+  <nav class="bg-white shadow-md sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+
+        <div class="text-2xl font-bold text-blue-800">
+          RDR2
+        </div>
+
+        <div class="space-x-6">
+          <a href="../../../index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="../../pages/about/about.html" class="text-gray-700 hover:text-blue-600">About</a>
+          <a href="../../pages/contact/contact.html" class="text-gray-700 hover:text-blue-700">Contact</a>
+          <a href="./signin.html" class="text-gray-700 hover:text-blue-500">Sign In</a>
+          <a href="../../pages/sign up/signup.html" class="text-gray-700 hover:text-blue-500">Sign Up</a>
+        </div>
+
+      </div>
     </div>
+  </nav>
 
-    <!-- Form -->
-    <form>
-      <!-- Email -->
-      <div class="mb-4">
-        <label class="block text-sm font-medium text-gray-900 mb-1">Email Address</label>
-        <input type="email" placeholder="123@example.com"
-          class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+  <!-- Card - centered below nav -->
+  <div class="flex-1 flex items-center justify-center">
+    <div class="bg-blue-100 rounded-2xl shadow-lg p-10 w-full max-w-md">
+
+      <!-- Logo -->
+      <div class="text-center mb-8">
+        <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">RDR2</div>
+        <h1 class="text-2xl font-bold text-gray-900">Sign In to RDR2</h1>
+        <p class="text-gray-500 text-sm mt-1">Welcome back!</p>
       </div>
 
-      <!-- Password -->
-      <div class="mb-7">
-        <label class="block text-sm font-medium text-gray-900 mb-1">Password</label>
-        <input type="password" placeholder="Enter your Password"
-          class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
-      </div>
+      <!-- Form -->
+      <form>
+        <!-- Email -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-900 mb-1">Email Address</label>
+          <input type="email" placeholder="123@example.com"
+            class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+        </div>
 
-      <!-- Button -->
-      <button type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2.5 rounded-lg text-sm transition">
-        Sign In
-      </button>
-    </form>
+        <!-- Password -->
+        <div class="mb-7">
+          <label class="block text-sm font-medium text-gray-900 mb-1">Password</label>
+          <input type="password" placeholder="Enter your Password"
+            class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-400"/>
+        </div>
 
-    <!-- Sign up link -->
-    <p class="text-center text-sm text-gray-500 mt-6">
-      Don't have an account? 
-      <a href="../sign up/signup.html" class="text-blue-500 font-semibold hover:underline">Sign Up</a>
-    </p>
+        <!-- Button -->
+        <button type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2.5 rounded-lg text-sm transition">
+          Sign In
+        </button>
+      </form>
 
+      <!-- Sign up link -->
+      <p class="text-center text-sm text-gray-500 mt-6">
+        Don't have an account? 
+        <a href="../sign up/signup.html" class="text-blue-500 font-semibold hover:underline">Sign Up</a>
+      </p>
+
+    </div>
   </div>
 
 </body>
