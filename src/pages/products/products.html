@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | ApexRide</title>
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style> body { font-family: 'Poppins', sans-serif; } </style>
+</head>
+<body class="bg-slate-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-2">
+          <img src="../../../favicon.png" alt="ApexRide Logo" class="h-10 w-auto rounded-full">
+          <span class="text-2xl font-bold text-blue-700">ApexRide</span>
+        </div>
+        <div class="flex space-x-6 items-center">
+          <a href="../../../index.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">Home</a>
+          <a href="../about/about.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">About</a>
+          <a href="../contact/contact.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">Contact</a>
+          <a href="products.html" class="text-blue-600 font-semibold text-sm border-b-2 border-blue-600 pb-0.5">Products</a>
+          <a href="../sign in/signin.html" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 text-sm font-medium">Sign In</a>
+          <a href="../sign up/signup.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl font-bold mb-2">Car Parts</h1>
+        <p class="text-blue-100 text-base max-w-xl">Browse and manage our full inventory of premium car modification parts.</p>
+      </div>
+      <button onclick="openAddModal()" class="bg-white text-blue-700 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition text-sm">
+        + Add New Product
+      </button>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div class="text-blue-600 text-3xl mb-2">📦</div>
+          <h3 class="text-2xl font-bold text-gray-800" id="statTotal">0</h3>
+          <p class="text-gray-500 text-sm">Total Products</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div class="text-blue-600 text-3xl mb-2">💰</div>
+          <h3 class="text-2xl font-bold text-gray-800" id="statAvgPrice">$0</h3>
+          <p class="text-gray-500 text-sm">Average Price</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+          <div class="text-blue-600 text-3xl mb-2">⭐</div>
+          <h3 class="text-2xl font-bold text-gray-800" id="statAvgRating">0</h3>
+          <p class="text-gray-500 text-sm">Average Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div id="productsGrid" class="grid md:grid-cols-3 gap-6"></div>
+      <div id="emptyState" class="hidden text-center py-24">
+        <div class="text-5xl mb-4">🔧</div>
+        <p class="text-gray-500 text-lg font-semibold">No products found.</p>
+        <p class="text-gray-400 text-sm mt-1">Click "Add New Product" to get started.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD MODAL -->
+  <div id="addModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+      <div class="flex justify-between items-center mb-5">
+        <h2 class="text-xl font-bold text-gray-800">Add New Product</h2>
+        <button onclick="closeAddModal()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+      </div>
+      <form id="addForm" class="space-y-4">
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Product Name</label>
+          <input id="addName" type="text" placeholder="e.g. Turbo Boost Kit" required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Category</label>
+          <select id="addCategory" required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="">Select Category</option>
+            <option>Engine</option><option>Exhaust</option><option>Lighting</option>
+            <option>Body</option><option>Brakes</option><option>Suspension</option>
+            <option>Wheels</option><option>Interior</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm font-medium text-gray-700 block mb-1">Price ($)</label>
+            <input id="addPrice" type="number" min="1" placeholder="e.g. 299" required
+              class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+          <div>
+            <label class="text-sm font-medium text-gray-700 block mb-1">Rating (1-5)</label>
+            <input id="addRating" type="number" min="1" max="5" step="0.1" placeholder="e.g. 4.5" required
+              class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Description</label>
+          <textarea id="addDescription" rows="3" placeholder="Brief product description..." required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"></textarea>
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button type="button" onclick="closeAddModal()"
+            class="flex-1 border border-gray-200 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Cancel</button>
+          <button type="submit"
+            class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Add Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- EDIT MODAL -->
+  <div id="editModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+      <div class="flex justify-between items-center mb-5">
+        <h2 class="text-xl font-bold text-gray-800">Edit Product</h2>
+        <button onclick="closeEditModal()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+      </div>
+      <form id="editForm" class="space-y-4">
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Product Name</label>
+          <input id="editName" type="text" required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Category</label>
+          <select id="editCategory" required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option>Engine</option><option>Exhaust</option><option>Lighting</option>
+            <option>Body</option><option>Brakes</option><option>Suspension</option>
+            <option>Wheels</option><option>Interior</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm font-medium text-gray-700 block mb-1">Price ($)</label>
+            <input id="editPrice" type="number" min="1" required
+              class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+          <div>
+            <label class="text-sm font-medium text-gray-700 block mb-1">Rating (1-5)</label>
+            <input id="editRating" type="number" min="1" max="5" step="0.1" required
+              class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Description</label>
+          <textarea id="editDescription" rows="3" required
+            class="w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"></textarea>
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button type="button" onclick="closeEditModal()"
+            class="flex-1 border border-gray-200 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50 transition">Cancel</button>
+          <button type="submit"
+            class="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+    <p>© 2026 ApexRide. All rights reserved.</p>
+  </footer>
+
+  <script src="../../database/products.js"></script>
+  <script src="products.js"></script>
+</body>
+</html>
