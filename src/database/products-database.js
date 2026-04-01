@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     name: "Turbo Boost Kit",
@@ -43,14 +43,5 @@ const products = [
     rating: 4.9,
     description: "High-heat racing brake pads for superior stopping power.",
     createdAt: "2026-02-10"
-  },
-  {
-    id: 6,
-    name: "Lowering Springs",
-    category: "Suspension",
-    price: 210,
-    rating: 4.4,
-    description: "Drop your ride height and improve handling with sport springs.",
-    createdAt: "2026-02-15"
   }
 ];
