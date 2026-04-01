@@ -17,10 +17,11 @@
 <nav class="bg-white shadow-sm sticky top-0 z-10">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex justify-between items-center h-16">
-     <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-2">
         <img src="favicon.png" alt="ApexRide Logo" class="h-10 w-auto rounded-full">
         <span class="text-2xl font-bold text-blue-700">ApexRide</span>
-     </div>
+    </div>
+    
       <div class="hidden md:flex space-x-6 items-center">
         <a href="./index.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">Home</a>
         <a href="./src/pages/about/about.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">About</a>
@@ -28,9 +29,13 @@
         <a href="./src/pages/contact/contact.html" class="text-gray-600 hover:text-blue-600 font-medium text-sm">Contact</a>
         <a href="./src/pages/sign in/signin.html" class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 text-sm font-medium">Sign In</a>
         <a href="./src/pages/sign up/signup.html" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium">Sign Up</a>
+        <button id="themeToggleBtn" class="text-2xl p-2 rounded-full hover:bg-gray-200 transition duration-300 ml-4">
+  <span id="modeEmoji">🌓</span>
+</button>
       </div>
     </div>
   </div>
+
 </nav>
 
 <!-- Hero Section -->
@@ -84,6 +89,6 @@
 <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
   <p>© 2026 ApexRide. All rights reserved.</p>
 </footer>
-
+<script src="./src/constants/themeconstants.js"></script>
 </body>
 </html>
